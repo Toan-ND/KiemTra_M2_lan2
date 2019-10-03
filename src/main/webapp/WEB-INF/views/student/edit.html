@@ -1,0 +1,32 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Student</title>
+</head>
+<body>
+<h1>Edit student</h1>
+<p>
+    <a href="/student">Students list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/edit-student}" th:object="${student}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>name</td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td>birthday</td>
+            <td><input type="text" th:field="*{birthdate}"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Update student"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
